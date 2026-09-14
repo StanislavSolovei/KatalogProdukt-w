@@ -12,11 +12,12 @@ for (int i = 0; i < nazwy.Length; i++)
     if (ceny[i] > 400)
     {
         suma = suma + ceny[i];
-        // po drugim obiegu suma wynosi 899
+        // po drugim obiegu suma wynosi 1148.5
         licznik++;
     }
 }
 
 // Uwaga: przy pustym liczniku byłoby dzielenie przez zero
 double srednia = suma / licznik;
+Console.WriteLine($"Ilość produktów w bazie: {nazwy.Length}");
 Console.WriteLine($"Średnia cena: {srednia:C} zł z {licznik} produktów"); 
