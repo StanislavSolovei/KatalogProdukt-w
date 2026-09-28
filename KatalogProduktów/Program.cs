@@ -5,35 +5,13 @@ Console.OutputEncoding = System.Text.Encoding.UTF8;
 string[] nazwy = { "Procesor", "Pamięć RAM", "Dysk SSD", "Zasilacz" };
 double[] ceny = { 899.00, 249.50, 379.00, 189.99 };
 
-Produkt procesor = new Produkt();
-procesor.Nazwa = "AMD Ryzen";
-procesor.Cena = 899.99;
-procesor.Kategoria = "Podzespoły";
-procesor.Ilosc = 10;
+Produkt procesor = new Produkt("AMD Ryzen", 899.99, "Podzespoły", 10);
 
-Produkt ram = new Produkt
-{
-    Nazwa = "Pamięć RAM",
-    Cena = 249.50,
-    Kategoria = "Podzespoły",
-    Ilosc = 20
-};
+Produkt ram = new Produkt("Pamięć RAM", 249.50, "Podzespoły", 20);
 
-Produkt ssd = new Produkt
-{
-    /* Dysk SSD */Nazwa = "",
-    Cena = -397.00,
-    Kategoria = "Podzespoły",
-    Ilosc = 15
-};
+Produkt ssd = new Produkt("Dysk SSD", 397.00, "Podzespoły", 15);
 
-Produkt zasilacz = new Produkt
-{
-    Nazwa = "Zasilacz",
-    Cena = 189.99,
-    Kategoria = "Podzespoły",
-    Ilosc = 5
-};
+Produkt zasilacz = new Produkt("Zasilacz", 189.99, "Podzespoły", 5);
 
 Produkt[] produkty = {procesor, ram, ssd, zasilacz};
 
@@ -46,7 +24,7 @@ double suma = 0;
 foreach (Produkt produkt in produkty)
 {
     Console.WriteLine($"Nazwa: {produkt.Nazwa,-25}| Cena: {produkt.Cena,10:f2} zł | " +
-        $"Kategoria: {produkt.Kategoria} | Ilość: {produkt.Ilosc,5}");
+        $"Kategoria: {produkt.Kategoria} | Ilość: {produkt.Ilosc,5} | Wartość magazynu: {produkt.WartoscMagazynu,10:f2} zł");
 
     if (minimalnaCena > produkt.Cena)
     {
