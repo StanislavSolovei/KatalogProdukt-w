@@ -40,6 +40,10 @@ foreach (Produkt produkt in produkty)
     {
         srednia = suma / licznik;
     }
+    for (int i = produkt.Ilosc; i > 0; i--)
+    {
+        produkt.Sprzedaj();
+    }
 
 }
 double wartoscMagazynu = Produkt.ObliczWartoscMagazynu(produkty);

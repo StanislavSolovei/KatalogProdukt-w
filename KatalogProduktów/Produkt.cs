@@ -40,6 +40,7 @@ namespace KatalogProduktów
                 }
             }
         }
+        public int MinimalnyStan { get; set; }
         public string Kategoria;
         public int Ilosc;
 
@@ -53,6 +54,7 @@ namespace KatalogProduktów
             Cena = cena;
             Kategoria = kategoria;
             Ilosc = ilosc;
+            MinimalnyStan = 1;
         }
         public void WypiszProdukt()
         {
@@ -72,6 +74,22 @@ namespace KatalogProduktów
                 suma += produkt.WartoscMagazynu;
             }
             return suma;
+        }
+        public bool CzyMoznaZamowic()
+        {
+            return Ilosc > MinimalnyStan;
+        }
+        public void Sprzedaj()
+        {
+            if (CzyMoznaZamowic())
+            {
+                Ilosc--;
+                Console.WriteLine($"Sprzedano produkt: {Nazwa}. Pozostało na stanie: {Ilosc}");
+            } 
+            else
+            {
+                Console.WriteLine($"Nie można sprzedać produktu: {Nazwa}. Brak na stanie.");
+            }
         }
     }
 }
