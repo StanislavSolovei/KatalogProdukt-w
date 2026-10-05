@@ -23,8 +23,7 @@ double suma = 0;
 
 foreach (Produkt produkt in produkty)
 {
-    Console.WriteLine($"Nazwa: {produkt.Nazwa,-25}| Cena: {produkt.Cena,10:f2} zł | " +
-        $"Kategoria: {produkt.Kategoria} | Ilość: {produkt.Ilosc,5} | Wartość magazynu: {produkt.WartoscMagazynu,10:f2} zł");
+    produkt.WypiszProdukt();
 
     if (minimalnaCena > produkt.Cena)
     {
@@ -43,9 +42,12 @@ foreach (Produkt produkt in produkty)
     }
 
 }
+double wartoscMagazynu = Produkt.ObliczWartoscMagazynu(produkty);
+
 Console.WriteLine($"Najniższa cena: {minimalnaCena}");
 Console.WriteLine($"Największa cena: {maksymalnaCena}");
 Console.WriteLine($"Średnia cena: {srednia:f2} zł");
+Console.WriteLine($"Suma wartości magazynu dla wszystkich produktów: {wartoscMagazynu:f2} zł");
 
 
 

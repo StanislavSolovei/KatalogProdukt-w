@@ -54,5 +54,24 @@ namespace KatalogProduktów
             Kategoria = kategoria;
             Ilosc = ilosc;
         }
+        public void WypiszProdukt()
+        {
+            Console.WriteLine($"Nazwa: {Nazwa,-25}| Cena: {Cena,10:f2} zł | " +
+            $"Kategoria: {Kategoria} | Ilość: {Ilosc,5} | Wartość magazynu: {WartoscMagazynu,10:f2} zł");
+        }
+        public string InformacjeOProdukcie()
+        {
+            return $"Nazwa: {Nazwa,-15}| Cena: {Cena,10:f2} zł | " +
+                $"Kategoria: {Kategoria} | Ilość: {Ilosc,5} | Wartość magazynu: {WartoscMagazynu,10:f2} zł";
+        }
+        public static double ObliczWartoscMagazynu(Produkt[] produkty)
+        {
+            double suma = 0;
+            foreach (Produkt produkt in produkty)
+            {
+                suma += produkt.WartoscMagazynu;
+            }
+            return suma;
+        }
     }
 }
