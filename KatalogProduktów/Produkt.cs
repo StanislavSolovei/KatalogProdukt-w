@@ -75,6 +75,10 @@ namespace KatalogProduktów
             }
             return suma;
         }
+        public static double ObliczWartoscMagazynu(List<Produkt> produkty)
+        {
+            return produkty.Sum(p => p.WartoscMagazynu);
+        }
         public bool CzyMoznaZamowic()
         {
             return Ilosc > MinimalnyStan;

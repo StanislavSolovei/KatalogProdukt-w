@@ -14,6 +14,15 @@ Produkt ssd = new Produkt("Dysk SSD", 397.00, "Podzespoły", 15);
 Produkt zasilacz = new Produkt("Zasilacz", 189.99, "Podzespoły", 5);
 
 Produkt[] produkty = {procesor, ram, ssd, zasilacz};
+//pusta tablica na 10 produktów
+Produkt[] produkty2 = new Produkt[10];
+//jeśli chcemy listę to:
+List<Produkt> listaProduktow = new List<Produkt>();
+//mając liste dodajemy do niej produkty metodą Add
+listaProduktow.Add(procesor);
+listaProduktow.Add(ram);
+listaProduktow.Add(ssd);
+listaProduktow.Add(zasilacz);
 
 double minimalnaCena = produkty[0].Cena;
 double maksymalnaCena = produkty[0].Cena;
@@ -21,7 +30,7 @@ double srednia = 0;
 int licznik = 0;
 double suma = 0;
 
-foreach (Produkt produkt in produkty)
+foreach (Produkt produkt in listaProduktow)
 {
     produkt.WypiszProdukt();
 
@@ -46,12 +55,25 @@ foreach (Produkt produkt in produkty)
     }
 
 }
+
+double sumaListy = listaProduktow.Sum(p => p.Cena);
+
+double sredniaListy = listaProduktow.Average(p => p.Cena);
+
+List<Produkt> drogieProdukty = listaProduktow.Where(p => p.Cena > 200).ToList();
+
+double sumaDrogichProduktow = listaProduktow.Where(p => p.Cena > 200).Sum(p => p.Cena);
+
 double wartoscMagazynu = Produkt.ObliczWartoscMagazynu(produkty);
 
 Console.WriteLine($"Najniższa cena: {minimalnaCena}");
 Console.WriteLine($"Największa cena: {maksymalnaCena}");
 Console.WriteLine($"Średnia cena: {srednia:f2} zł");
 Console.WriteLine($"Suma wartości magazynu dla wszystkich produktów: {wartoscMagazynu:f2} zł");
+
+double wartoscListy = Produkt.ObliczWartoscMagazynu(listaProduktow);
+
+Console.WriteLine(procesor.ToString());
 
 
 
