@@ -106,5 +106,9 @@ namespace KatalogProduktów
             }
             return null;
         }
+        public static Produkt ZnajdzPoNazwie(List<Produkt> produkty, string nazwa)
+        {
+            return produkty.FirstOrDefault(p => p.Nazwa.Contains(nazwa, StringComparison.OrdinalIgnoreCase));
+        }
     }
 }

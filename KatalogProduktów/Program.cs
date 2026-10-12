@@ -76,8 +76,16 @@ double wartoscListy = Produkt.ObliczWartoscMagazynu(listaProduktow);
 Console.WriteLine(procesor.ToString());
 
 Produkt p = Produkt.ZnajdzPoNazwie(produkty, "Dysk SSD");
-
 Console.WriteLine($"Znaleziono produkt: {p.Nazwa}, cena: {p.Cena} zł, ilość: {p.Ilosc}");
+
+Produkt p2 = Produkt.ZnajdzPoNazwie(listaProduktow, "sila");
+Console.WriteLine($"Znaleziono produkt: {p2.Nazwa}, cena: {p2.Cena} zł, ilość: {p2.Ilosc}");
+
+listaProduktow.Add(new Produkt("Karta graficzna", 1999.99, "Podzespoły", 3));
+Produkt p3 = listaProduktow[0];
+listaProduktow.Remove(p3);
+bool czyJest = listaProduktow.Contains(p3);
+listaProduktow.Clear();
 
 
 
