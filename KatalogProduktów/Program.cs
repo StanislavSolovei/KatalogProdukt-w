@@ -75,6 +75,10 @@ double wartoscListy = Produkt.ObliczWartoscMagazynu(listaProduktow);
 
 Console.WriteLine(procesor.ToString());
 
+Produkt p = Produkt.ZnajdzPoNazwie(produkty, "Dysk SSD");
+
+Console.WriteLine($"Znaleziono produkt: {p.Nazwa}, cena: {p.Cena} zł, ilość: {p.Ilosc}");
+
 
 
 
